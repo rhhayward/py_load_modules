@@ -21,11 +21,6 @@ def load(clazz, directories=[]):
                             if super_class.__name__ == clazz.__name__:
                                 modules.append(instance)
                                 continue
-
-                        if name != clazz.__name__:
-                            if isinstance(instance, clazz):
-                                modules.append(instance)
-
                     except Exception as e:
                         continue
 
