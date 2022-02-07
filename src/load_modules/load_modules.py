@@ -17,18 +17,10 @@ def load(clazz, directories=[]):
                 if inspect.isclass(obj) and obj:
                     try:
                         instance = getattr(path_modules, name)()
-                        print("instance.__class__.__name__={}".format(instance.__class__.__name__))
-                        if instance in modules:
-                            continue
                         for super_class in instance.__class__.__bases__:
                             if super_class.__name__ == clazz.__name__:
                                 modules.append(instance)
                                 continue
-
-                        if name != clazz.__name__:
-                            if isinstance(instance, clazz):
-                                modules.append(instance)
-
                     except Exception as e:
                         continue
 
